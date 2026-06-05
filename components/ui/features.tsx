@@ -11,7 +11,7 @@ type FeatureProps = {
 
 export default function Features({ id, img, alt, title, Description}: FeatureProps) {
     return(
-        <main className="flex flex-row items-center justify-center gap-15">
+        <main id="features" className="flex flex-row items-center justify-center gap-15">
             <div className= "flex flex-col items-start justify-start gap-4">
                 <h2 className="text-xl font-extrabold">{title}</h2>
                 <p className="whitespace-pre-line text-gray-600 font-semibold">{Description}</p>

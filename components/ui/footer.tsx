@@ -9,9 +9,9 @@ export default function Footer() {
             </div>
             <div> 
                 <h4>Pages</h4>
-                <p className="text-gray-300">How it works</p>
-                <p className="text-gray-300">Contact</p>
-                <p className="text-gray-300">Features</p>
+                <p className="text-gray-300"><a href="#how-it-works">How it works</a></p>
+                <p className="text-gray-300"><a href="mailto:timi.agbaje.mail@gmail.com">Contact</a></p>
+                <p className="text-gray-300"><a href="#features">Features</a></p>
             </div>
        </div>
         <p className="absolute left-8 bottom-4 text-gray-400">@ {new Date().getFullYear()} Duelogue</p>
