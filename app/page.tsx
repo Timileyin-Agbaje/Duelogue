@@ -1,48 +1,31 @@
+import Header from "@/components/ui/header";
+import Hero from "@/components/ui/hero";
+import Features from "@/components/ui/features";
+import PreFooter from "@/components/preFooter";
+import Footer from "@/components/ui/footer";
+import HowItWorks from "@/components/ui/how-it-works";
+
+export const viewport = { width: "device-width", initialScale: 1 };
+
+const featuresData = [
+    {id:1, img: "/images/diagram-1.svg", alt: "Diagram of Unbiased Perspective", title: "Unbiased Perspective", Description: "Each topic is analyzed for\n pros and cons without\n hidden bias or influence."},
+    {id:2, img: "/images/diagram-2.svg", alt: "Diagram of Clear Points", title: "Clear Points", Description: "Quickly Understand key\n points with concise,\n well-formatted breakdowns." },
+    {id:3, img: "/images/diagram_3.svg", alt: "Diagram of Actionable Insights", title: "Actionable Insights", Description: "Gain practical next steps\n and real takeaways to\n inform your decisions."}
+]
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div>
+        <Header />
+        <Hero />
+        <section id="features" className="space-y-16">
+          {featuresData.map(feature => (
+            <Features key={feature.id} img={feature.img} alt={feature.alt} title={feature.title} Description={feature.Description} />
+          ))}
+        </section>
+        <HowItWorks />
+        <PreFooter />
+        <Footer />
     </div>
   );
 }
