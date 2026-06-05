@@ -6,7 +6,7 @@ import PreFooter from "@/components/preFooter";
 import Footer from "@/components/ui/footer";
 import HowItWorks from "@/components/ui/how-it-works";
 
-export const viewport = "width=device-width, initial-scale=1.0";
+export const viewport = { width: "device-width", initialScale: 1 };
 
 const featuresData = [
     {id:1, img: "/images/diagram-1.svg", alt: "Diagram of Unbaised Perspective", title: "Unbiased Perspective", Description: "Each topic is analyzed for\n pros and cons without\n hidden bias or influence."},
