@@ -1,9 +1,9 @@
-import Header from "@/components/ui/header";
-import Hero from "@/components/ui/hero";
-import Features from "@/components/ui/features";
-import PreFooter from "@/components/preFooter";
-import Footer from "@/components/ui/footer";
-import HowItWorks from "@/components/ui/how-it-works";
+import Header from "@/components/landing/header";
+import Hero from "@/components/landing/hero";
+import Features from "@/components/landing/features";
+import PreFooter from "@/components/landing/preFooter";
+import Footer from "@/components/landing/footer";
+import HowItWorks from "@/components/landing/how-it-works";
 
 export const viewport = { width: "device-width", initialScale: 1 };
 
