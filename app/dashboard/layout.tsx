@@ -1,4 +1,6 @@
+import Sidebar from "@/components/dashboard/sidebar/sidebar";
 import type { ReactNode } from "react";
+import { SidebarProvider } from "@/components/dashboard/context/SidebarContext"
 
 export default function DashboardLayout({
   children,
@@ -6,15 +8,13 @@ export default function DashboardLayout({
   children: ReactNode;
 }) {
   return (
-    <div>
-        <aside className="w-64 border-r p-4">
-        <h1 className="text-xl font-bold">Duelogue</h1>
-      </aside>
-
-      <main className="flex-1 p-6">
+    <div className="flex h-screen">
+      <SidebarProvider>
+        <Sidebar />
+      <main className="flex-1 h-screen overflow-y-auto">
         {children}
-        
       </main>
+      </SidebarProvider>
     </div>
   );
 }
