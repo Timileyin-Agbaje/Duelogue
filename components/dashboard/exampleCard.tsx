@@ -1,4 +1,4 @@
-import { LucideIcon, ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 type exampleCardProps = {
 title: string;
