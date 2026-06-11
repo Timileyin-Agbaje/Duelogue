@@ -12,10 +12,10 @@ export default function DashboardLayout(){
        <TopicInput />
        <Example />
        <div className="w-full max-w-2xl grid grid-cols-4 md:grid-cols-2 gap-6">
-         <ExampleCard title="Should i quit my Job?" description="Evaluate the pros and cons of leaveing your current role." Icon={<Brain className="h-10 w-9" style={{color : "BF00FF"}} />} />
-         <ExampleCard title="Rent vs. Buy a house?" description="Compare the financial and lifestyle impacts of each option." Icon={<House className="h-10 w-9" style={{color : "00674F"}} />} />
+         <ExampleCard title="Should i quit my Job?" description="Evaluate the pros and cons of leaveing your current role." Icon={<Brain className="h-10 w-9" style={{ color: "`#BF00FF`" }} />} />
+         <ExampleCard title="Rent vs. Buy a house?" description="Compare the financial and lifestyle impacts of each option." Icon={<House className="h-10 w-9" style={{ color: "`#00674F`" }} />} />
          <ExampleCard title="Macbook vs. Windows Laptop?" description="Break down features, performance  and value to decide" Icon={<Laptop className="h-10 w-9" style={{color : "0050cb"}} />} />
-         <ExampleCard title="Solo travel vs. Group travel" description="Evaluate the pros and cons of leaveing your current role?" Icon={<Plane className="h-10 w-9" style={{color : "FBB15B"}} />} />
+         <ExampleCard title="Solo travel vs. Group travel" description="Evaluate the pros and cons of leaveing your current role?" Icon={<Plane className="h-10 w-9" style={{ color: "`#FBB15B`" }} />} />
        </div>
        <Footernote />
     </div>
