@@ -3,7 +3,6 @@ import Hero from "@/components/landing/hero";
 import Features from "@/components/landing/features";
 import PreFooter from "@/components/landing/preFooter";
 import Footer from "@/components/landing/footer";
-import HowItWorks from "@/components/landing/how-it-works";
 
 export const viewport = { width: "device-width", initialScale: 1 };
 
@@ -15,7 +14,7 @@ const featuresData = [
 
 export default function Home() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
         <Header />
         <Hero />
         <section id="features" className="space-y-16">
@@ -23,7 +22,6 @@ export default function Home() {
             <Features key={feature.id} img={feature.img} alt={feature.alt} title={feature.title} Description={feature.Description} />
           ))}
         </section>
-        <HowItWorks />
         <PreFooter />
         <Footer />
     </div>
