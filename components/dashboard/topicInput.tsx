@@ -1,6 +1,7 @@
-import { Plus, ArrowUp } from 'lucide-react';
+import {ArrowUp } from 'lucide-react';
 
 export default function topicInput() {
+
     return(
         <div className="relative w-full max-w-2xl">
             <form>
