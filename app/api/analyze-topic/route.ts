@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.0-flash";
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
+const GROQ_MODEL = process.env.GROQ_MODEL || "llama-3.3-70b-versatile";
 
 export async function POST(req: NextRequest) {
   try {
@@ -22,14 +22,21 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!GEMINI_API_KEY) {
+    if (!GROQ_API_KEY) {
       return NextResponse.json(
         { ok: false, error: "Server configuration error: missing API key." },
         { status: 500 }
       );
     }
 
-    const prompt = `Analyze the following topic and provide a balanced debate analysis.
+    const systemPrompt = `You are a debate analysis assistant. Given a topic, return a JSON object with:
+- "topic": the topic string
+- "proSide": array of 3 strong arguments in favor
+- "conSide": array of 3 strong arguments against
+
+Each argument should be 1-2 sentences. Be balanced and objective.`;
+
+    const userPrompt = `Analyze the following topic and provide a balanced debate analysis.
 
 Topic: "${topic}"
 
@@ -42,33 +49,35 @@ Return a JSON object with exactly this structure:
 
 Provide 3 strong, well-reasoned arguments for each side. Each argument should be 1-2 sentences.`;
 
-    const geminiRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: {
-            response_mime_type: "application/json",
-            temperature: 0.7,
-            maxOutputTokens: 1024,
-          },
-        }),
-      }
-    );
+    const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${GROQ_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: GROQ_MODEL,
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userPrompt },
+        ],
+        temperature: 0.7,
+        max_tokens: 1024,
+        response_format: { type: "json_object" },
+      }),
+    });
 
-    if (!geminiRes.ok) {
-      const errBody = await geminiRes.text();
-      console.error("Gemini API error:", geminiRes.status, errBody);
+    if (!groqRes.ok) {
+      const errBody = await groqRes.text();
+      console.error("Groq API error:", groqRes.status, errBody);
       return NextResponse.json(
         { ok: false, error: "The analysis service is currently unavailable. Please try again later." },
         { status: 502 }
       );
     }
 
-    const geminiData = await geminiRes.json();
-    const text = geminiData?.candidates?.[0]?.content?.parts?.[0]?.text;
+    const groqData = await groqRes.json();
+    const text = groqData?.choices?.[0]?.message?.content;
 
     if (!text) {
       return NextResponse.json(
