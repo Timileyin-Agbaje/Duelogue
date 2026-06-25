@@ -1,7 +1,7 @@
 
 export default function HowItWorks() {
     return (  
-      <section id="how-it-works">
+      <section id="how-it-works" className="max-w-2xl mx-auto px-4">
         <h2 className="text-2xl font-bold">How it Works</h2><br></br>
         <h3 className="text-lg font-semibold">Enter your topic</h3>
         <p className="text-base">Type in any claim, question, or debate, from policy issues to philosophical dilemmas.</p><br></br>
