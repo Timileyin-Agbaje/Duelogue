@@ -55,7 +55,8 @@ export default function TopicInput() {
 
   return (
     <div className="relative w-full max-w-2xl">
-      <form onSubmit={handleSubmit}>
+      {!isSuccess && (
+        <form onSubmit={handleSubmit}>
         <section
           className={cn(
             "h-15 rounded-xl flex flex-row justify-between border p-2 shadow-lg transition-all duration-200",
@@ -69,9 +70,7 @@ export default function TopicInput() {
             onChange={(e) => setTopic(e.target.value)}
             disabled={isLoading}
             className="w-11/12 appearance-none outline-none border-0 ring-0 focus:outline-none focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50"
-            placeholder={
-              isSuccess ? "Enter another topic..." : "Enter a topic to see both sides..."
-            }
+            placeholder="Enter a topic to see both sides..."
           />
           <span
             className={cn(
@@ -94,6 +93,7 @@ export default function TopicInput() {
           </span>
         </section>
       </form>
+      )}
 
       {isError && (
         <div className="mt-4 flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 p-4">

@@ -15,7 +15,7 @@ export default function Features({ img, alt, title, Description}: FeatureProps) 
                 <h2 className="text-xl font-extrabold">{title}</h2>
                 <p className="whitespace-pre-line text-gray-600 font-semibold">{Description}</p>
             </div>
-            <Image src={img} alt={alt} width={400} height={350} className="w-full max-w-sm md:max-w-none h-auto mr-0 md:mr-4" />
+            <Image src={img} alt={alt} width={250} height={200} className="w-full max-w-[200px] md:max-w-[250px] h-auto mr-0 md:mr-4" />
         </section>
     )
 }
