@@ -10,12 +10,12 @@ type FeatureProps = {
 
 export default function Features({ img, alt, title, Description}: FeatureProps) {
     return(
-        <section className="flex flex-row items-center justify-center gap-16">
+        <section className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 px-4 md:px-0">
             <div className= "flex flex-col items-start justify-start gap-4">
                 <h2 className="text-xl font-extrabold">{title}</h2>
                 <p className="whitespace-pre-line text-gray-600 font-semibold">{Description}</p>
             </div>
-            <Image src={img} alt={alt} width={400} height={350} className="mr-4" />
+            <Image src={img} alt={alt} width={400} height={350} className="w-full max-w-sm md:max-w-none h-auto mr-0 md:mr-4" />
         </section>
     )
 }
