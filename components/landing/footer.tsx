@@ -3,8 +3,8 @@ import Link from "next/link"
 
 export default function Footer() {
     return(
-      <footer className="bg-black text-white pb-20 relative">
-       <div className="flex flex-col md:flex-row items-start justify-between gap-6 px-4 md:px-8 py-4">
+           <footer className="bg-black text-white pb-20 relative">
+       <div className="flex flex-row items-start justify-between px-8 py-4">
             <div>
             <Image src="/logos/duelogue-logo-dark.svg" alt="Duelogue Logo" width={200} height={100} className="h-8 w-auto" />
             </div>
@@ -17,5 +17,6 @@ export default function Footer() {
        </div>
         <p className="absolute left-4 md:left-8 bottom-4 text-gray-400">@ {new Date().getFullYear()} Duelogue</p>
       </footer>
+   
     )
 }
