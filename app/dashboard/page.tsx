@@ -7,7 +7,7 @@ import { Brain, House, Laptop, Plane } from 'lucide-react';
 
 export default function DashboardLayout(){
    return(
-      <div className="flex flex-col gap-6 min-h-full items-center justify-center">
+      <div className="flex flex-col gap-6 items-center w-full px-4 py-8">
        <Herosection />
        <TopicInput />
        <Example />
