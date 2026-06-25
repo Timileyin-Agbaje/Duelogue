@@ -2,8 +2,8 @@ import Image from "next/image"
 import { useSidebar } from "@/components/dashboard/context/SidebarContext"
 
 
-export default function sidebarHeader() {
-     const { isCollapsed, toggle } = useSidebar();
+export default function SidebarHeader() {
+     const { isCollapsed } = useSidebar();
     return(
         <div>
             <header >

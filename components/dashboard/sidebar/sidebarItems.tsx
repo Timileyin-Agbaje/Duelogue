@@ -1,8 +1,8 @@
 import { MessageCircle, History} from 'lucide-react'
 import { useSidebar } from "@/components/dashboard/context/SidebarContext"
 
-export default function sidebarItems() {
-    const { isCollapsed, toggle } = useSidebar();
+export default function SidebarItems() {
+    const { isCollapsed } = useSidebar();
     return(
         <div>
             <section className={`${isCollapsed ? "gap-3" : "gap-1"} flex flex-col mt-10`}>
