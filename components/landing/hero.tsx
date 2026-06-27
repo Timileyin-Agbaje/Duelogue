@@ -21,7 +21,7 @@ export default function Hero() {
           </Button>
         </span>
         <Image
-          src="/Image/Image.webp"
+          src="/image/Image.webp"
           alt="Hero Image"
           width={800}
           height={600}
